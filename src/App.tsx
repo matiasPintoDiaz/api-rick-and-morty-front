@@ -11,17 +11,27 @@ const BASE_URL_CHARACTER = "https://rickandmortyapi.com/api/character/";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [character, setCharacter] = useState({}); // ERROR: La propiedad 'image' no existe en el tipo 'never'.ts(2339)
+  const [character, setCharacter] = useState({}); // ERROR: La propiedad 'image' no existe en el tipo '{}'.ts(2339)
 
   const fetchCharacter = async (): Promise<object> => {
     const response = await fetch(`${BASE_URL_CHARACTER}${count}`);
     const data = await response.json();
-    console.log(data);
+    // console.log('response: ', response)
+    //console.log('data: ', data);
     return data;
   };
 
+  const setCountOp = (count: number, op: string) => {
+    if(op == 'sub'){
+      if (count <= 1) return;
+      setCount(count - 1);
+    } else {
+      setCount(count + 1);
+    }
+  }
+
   useEffect(() => {
-    if (!count || count <= 0) return;
+    if (!count) return;
 
     fetchCharacter()
       .then((data) => {
@@ -38,23 +48,23 @@ function App() {
         <h1>Rick & Morty</h1>
       </div>
       <div className="card">
-        <button onClick={() => setCount((count) => count - 1)}>
+        <button onClick={() => setCountOp(count, 'sub')}>
           Previous Character
         </button>
         <p className="character">Personaje número: {count}</p>
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCountOp(count, 'add')}>
           Next Character
         </button>
       </div>
       <div className="card-character">
-        {character && 
+        {character &&  
           <Card sx={{ maxWidth: 345 }}>
           <CardActionArea>
             <CardMedia
               component="img"
               height="300"
               image={character.image}
-              alt="green iguana"
+              alt="character image"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
