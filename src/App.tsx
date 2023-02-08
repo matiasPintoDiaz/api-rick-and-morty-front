@@ -8,30 +8,28 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 import { fetchCharacter } from "./services/fetchingCharacter";
+import { baseCharacterData } from "./services/basesTypes";
 
 function App() {
   const [count, setCount] = useState(1);
-  const [character, setCharacter] = useState({}); // ERROR: La propiedad 'image' no existe en el tipo '{}'.ts(2339)
+  const [character, setCharacter] = useState(baseCharacterData);
 
-  const setCountOp = (op: string) => {
+  useEffect(() => {
+    fetchCharacter(count).then(setCharacter)
+  }, [count]);
+
+  const setCountOp = async (op: string) => {
     if (op == "sub") {
       if (count <= 1) return;
       setCount(count - 1);
     } else {
       setCount(count + 1);
     }
-  };
 
-  useEffect(() => {
-    // if (!count) return;
-    fetchCharacter(count)
-      .then((data) => {
-        setCharacter(data);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
-  }, [count]);
+    const character = await fetchCharacter(count);
+    console.log(character);
+    setCharacter(character);
+  };
 
   return (
     <div className="App">
