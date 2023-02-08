@@ -10,18 +10,16 @@ import { CardActionArea } from "@mui/material";
 const BASE_URL_CHARACTER = "https://rickandmortyapi.com/api/character/";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [character, setCharacter] = useState({}); // ERROR: La propiedad 'image' no existe en el tipo '{}'.ts(2339)
 
   const fetchCharacter = async (): Promise<object> => {
     const response = await fetch(`${BASE_URL_CHARACTER}${count}`);
     const data = await response.json();
-    // console.log('response: ', response)
-    //console.log('data: ', data);
     return data;
   };
 
-  const setCountOp = (count: number, op: string) => {
+  const setCountOp = (op: string) => {
     if(op == 'sub'){
       if (count <= 1) return;
       setCount(count - 1);
@@ -48,13 +46,16 @@ function App() {
         <h1>Rick & Morty</h1>
       </div>
       <div className="card">
-        <button onClick={() => setCountOp(count, 'sub')}>
+        <button onClick={() => setCountOp('sub')}>
           Previous Character
         </button>
         <p className="character">Personaje número: {count}</p>
-        <button onClick={() => setCountOp(count, 'add')}>
+        <button onClick={() => setCountOp('add')}>
           Next Character
         </button>
+{/*         <button onClick={() => fetchCharacter()}>
+          Next wuaaa
+        </button> */}
       </div>
       <div className="card-character">
         {character &&  
@@ -70,9 +71,6 @@ function App() {
               <Typography gutterBottom variant="h5" component="div">
                 {character.name}
               </Typography>
-              {<Typography variant="body2" color="text.secondary">
-                
-              </Typography>}
             </CardContent>
           </CardActionArea>
         </Card>}
