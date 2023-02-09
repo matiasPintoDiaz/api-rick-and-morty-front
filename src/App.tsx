@@ -7,6 +7,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
+
 import { fetchCharacter } from "./services/fetchingCharacter";
 import { baseCharacterData } from "./services/basesTypes";
 
@@ -32,35 +34,38 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div>
-        <h1>Rick & Morty</h1>
+    <>
+      <ResponsiveAppBar />
+      <div className="App">
+        <div>
+          <h1>Rick & Morty</h1>
+        </div>
+        <div className="card">
+          <button onClick={() => setCountOp("sub")}>Previous Character</button>
+          <p className="character">Personaje número: {count}</p>
+          <button onClick={() => setCountOp("add")}>Next Character</button>
+        </div>
+        <div className="card-character">
+          {character && (
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image={character.image}
+                  alt="character image"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {character.name}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          )}
+        </div>
       </div>
-      <div className="card">
-        <button onClick={() => setCountOp("sub")}>Previous Character</button>
-        <p className="character">Personaje número: {count}</p>
-        <button onClick={() => setCountOp("add")}>Next Character</button>
-      </div>
-      <div className="card-character">
-        {character && (
-          <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="300"
-                image={character.image}
-                alt="character image"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {character.name}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 
