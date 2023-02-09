@@ -5,12 +5,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 
+import "./navBar.css"
 
 const pages = ['Personajes', 'Ubicaciones', 'Capítulos'];
 
-function ResponsiveAppBar() {
+function NavBar() {
   return (
-    <AppBar color="secondary" position="absolute">
+    <AppBar className="navBar" position="absolute">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -30,7 +31,7 @@ function ResponsiveAppBar() {
           >
             Rick & Morty!
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box className="" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -46,4 +47,4 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
+export default NavBar;

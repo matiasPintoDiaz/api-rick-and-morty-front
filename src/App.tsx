@@ -7,7 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import NavBar from "./components/NavBar";
 
 import { fetchCharacter } from "./services/fetchingCharacter";
 import { baseCharacterData } from "./services/basesTypes";
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <ResponsiveAppBar />
+      <NavBar />
       <div className="App">
         <div>
           <h1>Rick & Morty</h1>
