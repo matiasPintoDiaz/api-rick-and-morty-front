@@ -46,9 +46,13 @@
   margin: auto 2em;
 }
 
-.card-character{
+.character-card {
   display: flex;
   justify-content: center;
+}
+
+.character-buton {
+  background-color:  #4caf50;
 }
 
 .read-the-docs {

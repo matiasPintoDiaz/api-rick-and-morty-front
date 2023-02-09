@@ -7,7 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 
 import { fetchCharacter } from "./services/fetchingCharacter";
 import { baseCharacterData } from "./services/basesTypes";
@@ -41,11 +41,11 @@ function App() {
           <h1>Rick & Morty</h1>
         </div>
         <div className="card">
-          <button onClick={() => setCountOp("sub")}>Previous Character</button>
+          <button className="character-buton" onClick={() => setCountOp("sub")}>Previous Character</button>
           <p className="character">Personaje número: {count}</p>
-          <button onClick={() => setCountOp("add")}>Next Character</button>
+          <button className="character-buton" onClick={() => setCountOp("add")}>Next Character</button>
         </div>
-        <div className="card-character">
+        <div className="character-card">
           {character && (
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
