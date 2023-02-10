@@ -7,8 +7,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-import NavBar from "./components/NavBar/NavBar";
-
 import { fetchCharacter } from "./services/fetchingCharacter";
 import { baseCharacterData } from "./services/basesTypes";
 
@@ -35,7 +33,6 @@ function App() {
 
   return (
     <>
-      <NavBar />
       <div className="App">
         <div>
           <h1>Rick & Morty</h1>
