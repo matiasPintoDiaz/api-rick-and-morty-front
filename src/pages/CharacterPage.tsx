@@ -1,5 +1,3 @@
 export default function CharacterPage() {
-  return (
-    <div>CharacterPage</div>
-  )
+  return <div>CHARACTERS</div>;
 }
