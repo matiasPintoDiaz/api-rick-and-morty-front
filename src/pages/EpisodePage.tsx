@@ -11,33 +11,37 @@ import { fetchEpisode, EpisodeData } from "../services/fetchingEpisode";
 
 export default function EpisodePage() {
   const [episodes, setEpisodes] = useState<EpisodeData[]>([]);
+  const [expanded, setExpanded] = useState<string | false>(false);
 
   useEffect(() => {
     fetchEpisode().then(setEpisodes);
     // console.log(episodes);
   }, []);
 
+  const handleChange =
+    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+      setExpanded(newExpanded ? panel : false);
+    };
+
   return (
     <>
       <div className="list-box">
         {episodes.map((episode) => (
-          <div className="episode-box">
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id={episode.name}
-              >
-                <Typography>{episode.name}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  <p>{episode.episode}</p>
-                  <p>{episode.air_date}</p>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </div>
+          <Accordion expanded={expanded === `${episode.name}`} onChange={handleChange(`${episode.name}`)} key={episode.id.toString()}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id={episode.name}
+            >
+              <Typography>{episode.name}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                {episode.episode}
+                {episode.air_date}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         ))}
       </div>
     </>
