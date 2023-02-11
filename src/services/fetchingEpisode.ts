@@ -1,4 +1,4 @@
-const BASE_URL_EPISODE = "https://rickandmortyapi.com/api/episode";
+const BASE_URL_EPISODE = "https://rickandmortyapi.com/api/episode/";
 
 export type EpisodeData = {
   id: number
@@ -10,9 +10,17 @@ export type EpisodeData = {
   created: string
 }
 
-export const fetchEpisode = async (/* id: number */): Promise<[]> => {
+export const fetchEpisodes = async (/* id: number */): Promise<[]> => {
   const response = await fetch(BASE_URL_EPISODE);
   const data = await response.json();
   // console.log('desde fetching: ', data.results);
   return data.results;
 };
+
+
+export const fetchOneEpisode = async (id: number): Promise<EpisodeData> => {
+  const response = await fetch(`${BASE_URL_EPISODE}${id}`);
+  const episode = await response.json();
+  // console.log('desde fetching: ', episode);
+  return episode;
+}

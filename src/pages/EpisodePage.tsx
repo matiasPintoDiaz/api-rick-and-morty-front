@@ -7,14 +7,14 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { fetchEpisode, EpisodeData } from "../services/fetchingEpisode";
+import { fetchEpisodes, EpisodeData } from "../services/fetchingEpisode";
 
 export default function EpisodePage() {
   const [episodes, setEpisodes] = useState<EpisodeData[]>([]);
   const [expanded, setExpanded] = useState<string | false>(false);
 
   useEffect(() => {
-    fetchEpisode().then(setEpisodes);
+    fetchEpisodes().then(setEpisodes);
     // console.log(episodes);
   }, []);
 
@@ -27,7 +27,11 @@ export default function EpisodePage() {
     <>
       <div className="list-box">
         {episodes.map((episode) => (
-          <Accordion expanded={expanded === `${episode.name}`} onChange={handleChange(`${episode.name}`)} key={episode.id.toString()}>
+          <Accordion
+            expanded={expanded === `${episode.name}`}
+            onChange={handleChange(`${episode.name}`)}
+            key={episode.id.toString()}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
