@@ -1,6 +1,6 @@
 const BASE_URL_EPISODE = "https://rickandmortyapi.com/api/episode";
 
-export type episodeData = {
+export type EpisodeData = {
   id: number
   name: string
   air_date: string

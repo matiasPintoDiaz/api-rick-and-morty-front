@@ -7,12 +7,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-import { fetchCharacter } from "./services/fetchingCharacter";
-import { baseCharacterData } from "./services/basesTypes";
+import { fetchCharacter, CharacterData } from "./services/fetchingCharacter";
 
 function App() {
   const [count, setCount] = useState(1);
-  const [character, setCharacter] = useState(baseCharacterData);
+  const [character, setCharacter] = useState<CharacterData>();
 
   useEffect(() => {
     fetchCharacter(count).then(setCharacter)

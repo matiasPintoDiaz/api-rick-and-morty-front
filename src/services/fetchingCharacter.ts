@@ -1,6 +1,6 @@
 const BASE_URL_CHARACTER = "https://rickandmortyapi.com/api/character/";
 
-type characterData = {
+export type CharacterData = {
   id: number
   name: string
   status: string
@@ -21,7 +21,7 @@ type characterData = {
   created: string
 }
 
-export const fetchCharacter = async (count: number): Promise<characterData> => {
+export const fetchCharacter = async (count: number): Promise<CharacterData> => {
   const response = await fetch(`${BASE_URL_CHARACTER}${count}`);
   const data = await response.json();
   return data;
