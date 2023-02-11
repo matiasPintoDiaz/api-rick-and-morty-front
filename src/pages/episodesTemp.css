@@ -1,13 +1,12 @@
 body {
-    display: flex;
-    place-items: center!important;
+    /* display: flex;
+    place-items: center!important; */
 }
 
-.z {
-    display: flex;
+.list-box {
+    /* display: flex;
     align-items: center;
-    place-items: center!important;
-    max-height: 10rem;
+    place-items: center!important; */
 }
 
 .episode-list {
