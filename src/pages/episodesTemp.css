@@ -1,1 +1,24 @@
-.episode-box {}
+body {
+    display: flex;
+    place-items: center!important;
+}
+
+.z {
+    display: flex;
+    align-items: center;
+    place-items: center!important;
+    max-height: 10rem;
+}
+
+.episode-list {
+    /* margin-bottom: 20px; */
+}
+
+.episode-box {
+    /* background-color: #4caf50!important; */
+    /* margin: 10px; */
+}
+
+.episode {
+    /* margin: 20px; */
+}

@@ -9,17 +9,21 @@ export default function EpisodePage() {
 
   useEffect(() => {
     fetchEpisode().then(setEpisodes)
-    console.log(typeof episodes)
+    console.log(episodes)
   }, []);
 
   return (
     <>
-      <div className="">
-        <ol>
+      <div className="z">
+        <ol className="episode-list">
           {episodes.map((episode) => (
-            <li>
-              {episode.name}
-            </li>
+            <div className="episode-box">
+              <li className="episode">
+                {episode.name}
+              </li>
+              {/* <p>{episode.episode}</p>
+              <p>{episode.air_date}</p> */}
+            </div>
           ))}
         </ol>
       </div>
