@@ -21,6 +21,6 @@ export const fetchEpisodes = async (/* id: number */): Promise<[]> => {
 export const fetchOneEpisode = async (id: number): Promise<EpisodeData> => {
   const response = await fetch(`${BASE_URL_EPISODE}${id}`);
   const episode = await response.json();
-  // console.log('desde fetching: ', episode);
+  console.log('desde fetching: ', episode);
   return episode;
 }
