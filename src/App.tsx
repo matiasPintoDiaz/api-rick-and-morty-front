@@ -38,7 +38,7 @@ function App() {
         </div>
         <div className="card">
           <button className="character-buton" onClick={() => setCountOp("sub")}>Previous Character</button>
-          <p className="character">Personaje número: {count}</p>
+          <p className="character-id">Personaje número: {count}</p>
           <button className="character-buton" onClick={() => setCountOp("add")}>Next Character</button>
         </div>
         <div className="character-card">

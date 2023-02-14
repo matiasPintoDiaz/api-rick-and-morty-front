@@ -4,19 +4,28 @@ body {
   justify-content: center; */
 }
 
-.buttons-episode-box {
+.episode-box {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
   margin: 8rem auto;
 }
 
-.episode-list {
-    /* margin-bottom: 20px; */
+.buttons-episode-box {
+  display: flex;
+  margin: 2rem;
 }
 
-.episode-box {
-    /* background-color: #4caf50!important; */
-    /* margin: 10px; */
+.accordion {
+  /* color: #242424!important; */
+  background-color: rgba(255, 255, 255, 0.87)!important;
 }
 
-.episode {
-    /* margin: 20px; */
+.episode-id {
+  margin: auto 2em;
+}
+
+.episode-button {
+  background-color: #4caf50!important;
 }
