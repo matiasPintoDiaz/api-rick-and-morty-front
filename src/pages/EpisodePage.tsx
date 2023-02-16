@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import "./episodesTemp.css";
+import "../css/episodePage.css";
+// import "./episodesTemp.css";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 
 import { fetchOneEpisode, EpisodeData } from "../services/fetchingEpisode";
 
