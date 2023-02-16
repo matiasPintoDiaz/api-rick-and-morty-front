@@ -11,5 +11,8 @@ type locationData = {
 };
 
 export const fetchLocation = async (id: number): Promise<locationData> => {
-  return {};
+  const response = await fetch(`${BASE_URL_LOCATION}${id}`);
+  const location = await response.json();
+  console.log(location);
+  return location;
 };
