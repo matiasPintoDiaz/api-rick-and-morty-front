@@ -1,6 +1,6 @@
 const BASE_URL_LOCATION = "https://rickandmortyapi.com/api/location/";
 
-type locationData = {
+export type locationData = {
   id: number
   name: string
   type: string
