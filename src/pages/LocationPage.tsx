@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "../css/locationPage.css"
 
 import { fetchLocation, locationData } from "../services/fetchingLocation"
 
@@ -26,10 +27,16 @@ export default function LocationPage() {
 
   return (
     <>
-      <div>LOCATIONS</div>
-      <button className='' onClick={() => setCountOp("add")}>
-        NEXT
-      </button>
+      <div className='location-box'>
+        <div>
+          <h1>Rick & Morty Locations</h1>
+        </div>
+        <div className='button-location-box'>
+          <button className='' onClick={() => setCountOp("sub")}>Previous Location</button>
+          <p className='location-id'>Ubicación número: {id}</p>
+          <button className='' onClick={() => setCountOp("add")}>Next Location</button>
+        </div>
+      </div>
     </>
   );
 }
