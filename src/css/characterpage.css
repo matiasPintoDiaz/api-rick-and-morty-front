@@ -1,1 +1,30 @@
-    
+.character-box {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  margin: 8rem auto;
+}
+
+.buttons-character-box {
+  display: flex;
+  margin: 2rem;
+}
+
+.character-button {
+  background-color:  #4caf50!important;
+}
+
+.card {
+  padding: 2em;
+  display: flex ;
+}
+
+.character-id{
+  margin: auto 2em;
+}
+
+.character-card {
+  display: flex;
+  justify-content: center;
+}
