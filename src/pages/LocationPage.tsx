@@ -31,10 +31,10 @@ export default function LocationPage() {
         <div>
           <h1>Rick & Morty Locations</h1>
         </div>
-        <div className='button-location-box'>
-          <button className='' onClick={() => setCountOp("sub")}>Previous Location</button>
+        <div className='buttons-location-box'>
+          <button className='location-button' onClick={() => setCountOp("sub")}>Previous Location</button>
           <p className='location-id'>Ubicación número: {id}</p>
-          <button className='' onClick={() => setCountOp("add")}>Next Location</button>
+          <button className='location-button' onClick={() => setCountOp("add")}>Next Location</button>
         </div>
       </div>
     </>
