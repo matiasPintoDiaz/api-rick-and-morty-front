@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import "../css/characterpage.css";
 
 import Card from "@mui/material/Card";
@@ -14,10 +14,21 @@ export default function CharacterPage() {
   const [character, setCharacter] = useState<CharacterData>();
 
   useEffect(() => {
+    fetchCharacter(id).then(setCharacter);
+  }, [id]);
 
-  });
+  const setCountOp = async (op: string) => {
+    if (op == "sub") {
+      if (id <= 1) return;
+      setId(id - 1);
+    } else {
+      setId(id + 1);
+    }
 
-  // fetching + setId(count)
+    const character = await fetchCharacter(id);
+    console.log(character);
+    setCharacter(character);
+  };
 
   return (
     <>
@@ -26,12 +37,32 @@ export default function CharacterPage() {
           <h1>Rick & Morty Characters</h1>
         </div>
         <div className="buttons-character-box">
-          <button className='character-button'>Previous Character</button>
-          <p className='character-id'>Personaje número: {id}</p>
-          <button className='character-button'>Next Character</button>
+          <button className="character-button" onClick={() => setCountOp("sub")}>
+            Previous Character
+          </button>
+          <p className="character-id">Personaje número: {id}</p>
+          <button className="character-button" onClick={() => setCountOp("add")}>
+            Next Character
+          </button>
         </div>
-        <div className="list-box">
-
+        <div className="character-card">
+          {character && (
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image={character.image}
+                  alt="character image"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {character.name}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          )}
         </div>
       </div>
     </>
