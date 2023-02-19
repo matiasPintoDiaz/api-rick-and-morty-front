@@ -7,7 +7,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-
 import { fetchOneEpisode, EpisodeData } from "../services/fetchingEpisode";
 
 function EpisodePage() {
@@ -73,19 +72,23 @@ function EpisodePage() {
                 <Typography>{episode.name}</Typography>
               </AccordionSummary>
               <AccordionDetails className="accordion">
-                <Typography>
-                  <div>
-                    <p>Episodio: {episode.episode}</p>
-                    <p>Fecha de lanzamiento: {episode.air_date}</p>
-                    {/* <p>{typeof episode.characters[0]}</p>
-                    {/* <p>{episode.characters}</p> */}
-                    {/* {Object.values(episode.characters)} */}
-                    {/* {charactersPerEpisode.map((characters) => {
-                      <li>{characters}</li>;
-                    })} */}
-                  </div>
+                <Typography gutterBottom variant="subtitle1" component="div">
+                  Episode: {episode.episode}
+                </Typography>
+                <Typography gutterBottom variant="subtitle1" component="div">
+                  Release Date: {episode.air_date}
                 </Typography>
               </AccordionDetails>
+              {/* <Typography>
+                <div>
+                  {<p>{typeof episode.characters[0]}</p>
+                    {<p>{episode.characters}</p>}
+                  {Object.values(episode.characters)}
+                  {charactersPerEpisode.map((characters) => {
+                      <li>{characters}</li>;
+                    })}
+                </div>
+              </Typography> */}
             </Accordion>
           )}
         </div>
