@@ -24,9 +24,18 @@
   margin: auto 2em;
 }
 
+.cards {
+  display: flex;
+  justify-content: center;
+}
+
 .character-card {
   display: flex;
   justify-content: center;
+  color: rgba(255, 255, 255, 0.87)!important;
+  background-color: #242424!important;
+  border: solid 0.1em;
+  border-color: rgba(255, 255, 255, 0.87)!important;
 }
 
 .content {

@@ -51,9 +51,9 @@ function CharacterPage() {
             Next Character
           </button>
         </div>
-        <div className="character-card">
+        <div className="cards">
           {character && (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className="character-card" sx={{ maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -68,7 +68,11 @@ function CharacterPage() {
                 </CardContent>
                 <div className="content">
                   <CardContent>
-                    <Typography gutterBottom variant="subtitle1" component="div">
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                    >
                       Status: {character.status}
                     </Typography>
                     <Typography
@@ -85,7 +89,7 @@ function CharacterPage() {
                       variant="subtitle1"
                       component="div"
                     >
-                      Type: {character.type}
+                      Type: {character.type ? character.type : "NA"}
                     </Typography>
                     <Typography
                       gutterBottom
