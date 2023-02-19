@@ -37,11 +37,17 @@ function CharacterPage() {
           <h1>Rick & Morty Characters</h1>
         </div>
         <div className="buttons-character-box">
-          <button className="character-button" onClick={() => setCountOp("sub")}>
+          <button
+            className="character-button"
+            onClick={() => setCountOp("sub")}
+          >
             Previous Character
           </button>
           <p className="character-id">Personaje número: {id}</p>
-          <button className="character-button" onClick={() => setCountOp("add")}>
+          <button
+            className="character-button"
+            onClick={() => setCountOp("add")}
+          >
             Next Character
           </button>
         </div>
@@ -56,10 +62,40 @@ function CharacterPage() {
                   alt="character image"
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography variant="h4" component="div">
                     {character.name}
                   </Typography>
                 </CardContent>
+                <div className="content">
+                  <CardContent>
+                    <Typography gutterBottom variant="subtitle1" component="div">
+                      Status: {character.status}
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                    >
+                      Species: {character.species}
+                    </Typography>
+                  </CardContent>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                    >
+                      Type: {character.type}
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                    >
+                      Origin: {character.origin.name}
+                    </Typography>
+                  </CardContent>
+                </div>
               </CardActionArea>
             </Card>
           )}
