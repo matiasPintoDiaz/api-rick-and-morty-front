@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "../css/episodePage.css";
-// import "./episodesTemp.css";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -29,11 +28,11 @@ function EpisodePage() {
       setId(id + 1);
     }
 
-    const episodeResponse = await fetchOneEpisode(id);
+    // const episodeResponse = await fetchOneEpisode(id);
     // console.log(episode);
 
     // setCharactersPerEpisode(episodeResponse.characters);
-
+    const episode = await fetchOneEpisode(id);
     setEpisode(episode);
   };
 

@@ -9,7 +9,7 @@ import { CardActionArea } from "@mui/material";
 
 import { fetchCharacter, CharacterData } from "../services/fetchingCharacter";
 
-export default function CharacterPage() {
+function CharacterPage() {
   const [id, setId] = useState(1);
   const [character, setCharacter] = useState<CharacterData>();
 
@@ -68,3 +68,5 @@ export default function CharacterPage() {
     </>
   );
 }
+
+export default CharacterPage;

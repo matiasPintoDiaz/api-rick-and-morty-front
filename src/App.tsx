@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-import { fetchCharacter, CharacterData } from "./services/fetchingCharacter";
+import Portada from "./assets/Rick_y_Morty_Serie_de_TV-157026175-large.jpg";
 
 function App() {
   return (
@@ -10,8 +10,7 @@ function App() {
         <div>
           <h1>Rick & Morty API</h1>
         </div>
-        <div className="card"></div>
-        <div className="character-card"></div>
+        <img src={Portada} alt="Imagen-principal" />
       </div>
     </>
   );

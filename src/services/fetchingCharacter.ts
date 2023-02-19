@@ -21,8 +21,8 @@ export type CharacterData = {
   created: string
 }
 
-export const fetchCharacter = async (count: number): Promise<CharacterData> => {
-  const response = await fetch(`${BASE_URL_CHARACTER}${count}`);
+export const fetchCharacter = async (id: number): Promise<CharacterData> => {
+  const response = await fetch(`${BASE_URL_CHARACTER}${id}`);
   const data = await response.json();
   return data;
 };
